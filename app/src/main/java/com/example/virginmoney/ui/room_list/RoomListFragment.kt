@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.virginmoney.R
+import com.example.virginmoney.databinding.FragmentPersonListBinding
+import com.example.virginmoney.databinding.FragmentRoomListBinding
 
 
 /**
@@ -15,9 +19,35 @@ import com.example.virginmoney.R
  */
 class RoomListFragment : Fragment() {
 
+    private lateinit var binding: FragmentRoomListBinding
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        //1st initialize the binding
+        binding = FragmentRoomListBinding.inflate(inflater,container,false)
+
+        //2nd create reference for view model
+        val roomListViewModel = ViewModelProvider(this)[RoomListViewModel::class.java]
+
+        //3rd binding root
+        val root = binding.root
+
+
+        //4th get info from live data
+        binding.apply {
+            roomListViewModel.roomList.observe(viewLifecycleOwner){
+                binding.rvRooms.apply {
+                    layoutManager = LinearLayoutManager(context)
+                    adapter = RoomListAdapter(it)
+                }
+
+            }
+        }
+
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_room_list, container, false)
+        return root
     }
 
 }

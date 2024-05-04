@@ -4,7 +4,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
@@ -12,9 +11,11 @@ import com.example.virginmoney.R
 
 import com.example.virginmoney.data.model.people.PeopleItemModel
 import com.example.virginmoney.databinding.ElementPersonBinding
-import com.example.virginmoney.databinding.FragmentPersonListBinding
 
-class PeopleListAdapter(val peopleList:ArrayList<PeopleItemModel>):Adapter<PeopleListAdapter.MyViewHolder>(){
+class PeopleListAdapter(
+    val peopleList: ArrayList<PeopleItemModel>,
+    val function: (PeopleItemModel) -> Unit
+):Adapter<PeopleListAdapter.MyViewHolder>(){
 
     //1 Create view holder class
     inner class MyViewHolder(itemView: View):ViewHolder(itemView){
@@ -39,14 +40,14 @@ class PeopleListAdapter(val peopleList:ArrayList<PeopleItemModel>):Adapter<Peopl
 
 
     //holds the total count of the list
-    override fun getItemCount(): Int {
-        Log.d("Count",peopleList.size.toString())
-        return peopleList.size
-    }
+    override fun getItemCount(): Int = peopleList.size
 
 
     //Binds the position with the current item UI
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.updateUI(peopleList[position])
+        holder.binding.root.setOnClickListener {
+            function.invoke(peopleList.get(position))
+        }
     }
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,19 +33,38 @@ class PersonListFragment : Fragment() {
 
         //4th use binding to set onclick listner to navigate to desired Fragment
         binding.apply {
-            tvPersonListText.setOnClickListener {
-                //navigate to person details fragment
-                findNavController().navigate(R.id.personDetailsFragment)
-            }
+//            tvPersonListText.setOnClickListener {
+//                //navigate to person details fragment
+//                findNavController().navigate(R.id.personDetailsFragment)
+//            }
 
 
             //5th use the view model to populate the data/live data into the current fragment
             //live data is data that we are pulling from backend
-            peopleListViewModel.personList.observe(viewLifecycleOwner) { list ->
+            peopleListViewModel.personList.observe(viewLifecycleOwner){
+//                tvPersonListText.text = it
+
+                //6th RecyclerView needs two things Layout Manager and Adapter
                 binding.rvPeople.apply {
                     layoutManager = LinearLayoutManager(context)
-                    adapter = PeopleListAdapter(list)
+                    adapter = PeopleListAdapter(it) { peopleItemModel ->
+                        findNavController().navigate(
+                            R.id.action_personListFragment_to_personDetailsFragment,
+                            bundleOf(
+                                Pair("id",peopleItemModel.id),
+                                Pair("firstname",peopleItemModel.firstName),
+                                Pair("lastname",peopleItemModel.lastName),
+                                Pair("email",peopleItemModel.email),
+                                Pair("jobtitle",peopleItemModel.jobtitle),
+                                Pair("favouriteColor",peopleItemModel.favouriteColor),
+                                Pair("avatar",peopleItemModel.avatar)
+
+                                )
+                        )
+
+                    }
                 }
+
             }
         }
 

@@ -11,6 +11,13 @@
         android:layout_height="match_parent"
         android:text="Rooms List Fragment"
         android:textSize="34sp"
-        android:gravity="center"/>
+        android:gravity="center_horizontal"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content"
+        android:id ="@+id/rvRooms" />
+
 
 </FrameLayout>

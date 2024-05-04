@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.virginmoney.R
+import com.example.virginmoney.databinding.FragmentPersonDetailsBinding
+import com.example.virginmoney.databinding.FragmentPersonListBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -13,10 +16,32 @@ import com.example.virginmoney.R
  * create an instance of this fragment.
  */
 class PersonDetailsFragment : Fragment() {
+    private lateinit var binding: FragmentPersonDetailsBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentPersonDetailsBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_person_details, container, false)
+
+        val id = arguments?.getString("id")
+        val firstname = arguments?.getString("firstname")
+        val lastname = arguments?.getString("lastname")
+        val email = arguments?.getString("email")
+        val jobtitle = arguments?.getString("jobtitle")
+        val favouriteColor = arguments?.getString("favouriteColor")
+        val avatar = arguments?.getString("avatar")
+
+        binding.apply {
+            tvId.text = "Id: $id"
+            tvFirstname.text = "Firstname: $firstname"
+            tvLastname.text = "Lastname: $lastname"
+            tvEmail.text = "Email: $email"
+            tvJobTitle.text = "Job Title: $jobtitle"
+            tvFavouriteColor.text = "Favorite Color: $favouriteColor"
+            Glide.with(requireContext()).load(avatar).into(tvAvatar)
+        }
+
+
+        return binding.root
     }
 
 }

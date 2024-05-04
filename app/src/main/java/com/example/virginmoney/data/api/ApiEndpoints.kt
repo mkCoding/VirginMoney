@@ -3,6 +3,7 @@ package com.example.virginmoney.data.api
 import com.example.virginmoney.data.model.people.People
 import com.example.virginmoney.data.model.people.PeopleItemModel
 import com.example.virginmoney.data.model.rooms.Rooms
+import com.example.virginmoney.data.model.rooms.RoomsItemModel
 import retrofit2.http.GET
 
 interface ApiEndpoints{
@@ -12,5 +13,5 @@ interface ApiEndpoints{
 
 
     @GET(ApiDetail.ROOMS_ENDPOINT)
-    suspend fun getRooms(): ArrayList<Rooms>
+    suspend fun getRooms(): ArrayList<RoomsItemModel>
 }
