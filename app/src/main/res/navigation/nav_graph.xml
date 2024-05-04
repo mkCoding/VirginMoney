@@ -5,18 +5,26 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/personListFragment">
 
+    <!--Handles navigation for PersonListFragment-->
     <fragment
         android:id="@+id/personListFragment"
         android:name="com.example.virginmoney.ui.person_list.PersonListFragment"
         android:label="person_list_fragment"
-        tools:layout ="@layout/fragment_person_list" />
+        tools:layout ="@layout/fragment_person_list" >
+        <action
+            android:id="@+id/action_personListFragment_to_personDetailsFragment"
+            app:destination="@id/personDetailsFragment" />
+    </fragment>
 
+
+    <!--Handles navigation for PersonDetailsFragment-->
     <fragment
         android:id="@+id/personDetailsFragment"
         android:name="com.example.virginmoney.ui.person_list.PersonListFragment"
         android:label="person_details_fragment"
         tools:layout ="@layout/fragment_person_details" />
 
+    <!--Handles navigation for RoomListFragment-->
     <fragment
         android:id="@+id/roomListFragment"
         android:name="com.example.virginmoney.ui.room_list.RoomListFragment"

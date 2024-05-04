@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.virginmoney.R
 import com.example.virginmoney.databinding.FragmentPersonListBinding
 
@@ -36,11 +38,18 @@ class PersonListFragment : Fragment() {
                 findNavController().navigate(R.id.personDetailsFragment)
             }
 
-            //use the view model to populate the data/live data into the current fragment
+
+            //5th use the view model to populate the data/live data into the current fragment
             //live data is data that we are pulling from backend
             peopleListViewModel.text.observe(viewLifecycleOwner){
                 tvPersonListText.text = it
             }
+        }
+
+        //RecyclerView needs to things Layout Manager and Adapter
+        binding.rvPeople.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter
         }
 
         // Inflate the layout for this fragment

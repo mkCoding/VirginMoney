@@ -32,8 +32,19 @@ class PersonListViewModel:ViewModel() {
             val result = RetrofitInstance.apiClient.getPeople() //this actually makes the api call to the endpoint
             //this is the value that will be populated in the textView when .text.observe(viewLifecycleOwner) method is called
 
-            _text.postValue(result[0]?.firstName)
-            Log.d("Name Returned from API","${result[0]?.firstName}")
+            //Create array list to only hold all firstnames extracted from tha API
+            var firstNameList:MutableList<String> = mutableListOf()
+
+            //iterate through the list of PeopleItemModelElements
+            for(peopleItemModelElement in result){
+                //Add only the firstname of each PeopleItemModel element to the firstName List
+                firstNameList.add(peopleItemModelElement.firstName?: "Name not found")
+
+
+            }
+            _text.postValue(firstNameList.toString())
+            Log.d("Name Returned from API","$firstNameList")
+
         }
 
 

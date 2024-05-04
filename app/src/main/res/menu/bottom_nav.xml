@@ -7,7 +7,7 @@
 
     <item android:title="Rooms"
         android:id="@+id/allRooms"
-        android:icon="@drawable/person_icon"/>
+        android:icon="@drawable/bed_icon"/>
 
 
 <!--    <item android:title="Settings"-->
