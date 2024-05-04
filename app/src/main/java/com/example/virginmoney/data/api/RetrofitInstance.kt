@@ -5,8 +5,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-interface RetrofitInstance {
-
     object RetrofitInstance{
         private val loggingInterceptor = HttpLoggingInterceptor().apply{
             level = HttpLoggingInterceptor.Level.BODY
@@ -24,4 +22,3 @@ interface RetrofitInstance {
 
     }
 
-}
