@@ -4,13 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.virginmoney.R
-import com.example.virginmoney.data.model.people.PeopleItemModel
 import com.example.virginmoney.data.model.rooms.RoomsItemModel
-import com.example.virginmoney.databinding.ElementPersonBinding
 import com.example.virginmoney.databinding.ElementRoomBinding
-import com.example.virginmoney.ui.person_list.PeopleListAdapter
 
 class RoomListAdapter(
     val roomList: ArrayList<RoomsItemModel>):
@@ -45,9 +41,9 @@ class RoomListAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.updateUI(roomList[position])
-        holder.binding.root.setOnClickListener {
-//            function.invoke(roomList.get(position))
-        }
+//        holder.binding.root.setOnClickListener {
+////            function.invoke(roomList.get(position))
+//        }
     }
 
 

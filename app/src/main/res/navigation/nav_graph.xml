@@ -14,13 +14,14 @@
         <action
             android:id="@+id/action_personListFragment_to_personDetailsFragment"
             app:destination="@id/personDetailsFragment" />
+
     </fragment>
 
 
     <!--Handles navigation for PersonDetailsFragment-->
     <fragment
         android:id="@+id/personDetailsFragment"
-        android:name="com.example.virginmoney.ui.person_list.PersonListFragment"
+        android:name="com.example.virginmoney.ui.person_details.PersonDetailsFragment"
         android:label="person_details_fragment"
         tools:layout ="@layout/fragment_person_details" />
 

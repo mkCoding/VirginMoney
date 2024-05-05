@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
@@ -46,8 +47,10 @@ class PeopleListAdapter(
     //Binds the position with the current item UI
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.updateUI(peopleList[position])
-        holder.binding.root.setOnClickListener {
+
+        holder.binding.cvPerson.setOnClickListener {
             function.invoke(peopleList.get(position))
+
         }
     }
 }
