@@ -23,7 +23,8 @@
         android:id="@+id/personDetailsFragment"
         android:name="com.example.virginmoney.ui.person_details.PersonDetailsFragment"
         android:label="person_details_fragment"
-        tools:layout ="@layout/fragment_person_details" />
+        tools:layout ="@layout/fragment_person_details" >
+    </fragment>
 
     <!--Handles navigation for RoomListFragment-->
     <fragment

@@ -19,11 +19,15 @@ import com.example.virginmoney.databinding.FragmentPersonListBinding
  */
 class PersonListFragment : Fragment() {
 
-    private lateinit var binding:FragmentPersonListBinding
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private lateinit var binding: FragmentPersonListBinding
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         //1st initialize the binding
-        binding = FragmentPersonListBinding.inflate(inflater,container,false)
+        binding = FragmentPersonListBinding.inflate(inflater, container, false)
 
         //2nd create reference for view model
         val peopleListViewModel = ViewModelProvider(this)[PersonListViewModel::class.java]
@@ -33,44 +37,43 @@ class PersonListFragment : Fragment() {
 
         //4th use binding to set onclick listner to navigate to desired Fragment
         binding.apply {
+            binding.apply {
 //            tvPersonListText.setOnClickListener {
 //                //navigate to person details fragment
 //                findNavController().navigate(R.id.personDetailsFragment)
 //            }
 
 
-            //5th use the view model to populate the data/live data into the current fragment
-            //live data is data that we are pulling from backend
-            peopleListViewModel.personList.observe(viewLifecycleOwner){
+                //5th use the view model to populate the data/live data into the current fragment
+                //live data is data that we are pulling from backend
+                peopleListViewModel.personList.observe(viewLifecycleOwner) {
 //                tvPersonListText.text = it
 
-                //6th RecyclerView needs two things Layout Manager and Adapter
-                binding.rvPeople.apply {
-                    layoutManager = LinearLayoutManager(context)
-                    adapter = PeopleListAdapter(it) { peopleItemModel ->
-                        findNavController().navigate(
-                            R.id.action_personListFragment_to_personDetailsFragment,
-                            bundleOf(
-                                Pair("id",peopleItemModel.id),
-                                Pair("firstname",peopleItemModel.firstName),
-                                Pair("lastname",peopleItemModel.lastName),
-                                Pair("email",peopleItemModel.email),
-                                Pair("jobtitle",peopleItemModel.jobtitle),
-                                Pair("favouriteColor",peopleItemModel.favouriteColor),
-                                Pair("avatar",peopleItemModel.avatar)
+                    //6th RecyclerView needs two things Layout Manager and Adapter
+                    binding.rvPeople.apply {
+                        layoutManager = LinearLayoutManager(context)
+                        adapter = PeopleListAdapter(it) { peopleItemModel ->
+                            findNavController().navigate(
+                                R.id.action_personListFragment_to_personDetailsFragment,
+                                bundleOf(
+                                    Pair("id", peopleItemModel.id),
+                                    Pair("firstname", peopleItemModel.firstName),
+                                    Pair("lastname", peopleItemModel.lastName),
+                                    Pair("email", peopleItemModel.email),
+                                    Pair("jobtitle", peopleItemModel.jobtitle),
+                                    Pair("favouriteColor", peopleItemModel.favouriteColor),
+                                    Pair("avatar", peopleItemModel.avatar)
 
                                 )
-                        )
+                            )
 
+                        }
                     }
+
                 }
-
             }
+            // Inflate the layout for this fragment
+            return root
         }
-
-
-        // Inflate the layout for this fragment
-        return root
     }
-
 }

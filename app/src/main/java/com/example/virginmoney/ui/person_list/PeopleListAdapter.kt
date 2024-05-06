@@ -48,7 +48,7 @@ class PeopleListAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.updateUI(peopleList[position])
 
-        holder.binding.cvPerson.setOnClickListener {
+        holder.binding.root.setOnClickListener {
             function.invoke(peopleList.get(position))
 
         }

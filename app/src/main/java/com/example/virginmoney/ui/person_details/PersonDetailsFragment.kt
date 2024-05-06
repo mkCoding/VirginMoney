@@ -1,5 +1,6 @@
 package com.example.virginmoney.ui.person_details
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.virginmoney.R
 import com.example.virginmoney.databinding.FragmentPersonDetailsBinding
 import com.example.virginmoney.databinding.FragmentPersonListBinding
+import com.example.virginmoney.ui.person_list.PersonListFragment
 
 /**
  * A simple [Fragment] subclass.
@@ -38,6 +40,11 @@ class PersonDetailsFragment : Fragment() {
             tvJobTitle.text = "Job Title: $jobtitle"
             tvFavouriteColor.text = "Favorite Color: $favouriteColor"
             Glide.with(requireContext()).load(avatar).into(tvAvatar)
+
+            ivBackArrow.setOnClickListener {
+                val intent = Intent(requireContext(),PersonListFragment::class.java)
+//                requireActivity().supportFragmentManager.popBackStack()
+            }
         }
 
 
