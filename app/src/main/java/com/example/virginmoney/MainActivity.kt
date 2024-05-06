@@ -3,6 +3,8 @@ package com.example.virginmoney
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.virginmoney.databinding.ActivityMainBinding
 import com.example.virginmoney.ui.person_list.PersonListFragment
 import com.example.virginmoney.ui.room_list.RoomListFragment
@@ -16,8 +18,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(PersonListFragment()) //when app loads for first time always show Person List Fragment first
 
+        //When the app initially loads always show the PersonListFragment 1st
+        replaceFragment(PersonListFragment())
+
+
+        //This will handle the Bottom navigation. Switches between People and Rooms Fragment
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.people -> replaceFragment(PersonListFragment())

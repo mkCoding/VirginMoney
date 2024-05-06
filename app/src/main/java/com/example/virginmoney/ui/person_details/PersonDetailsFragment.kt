@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.virginmoney.R
 import com.example.virginmoney.databinding.FragmentPersonDetailsBinding
@@ -23,6 +24,8 @@ class PersonDetailsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentPersonDetailsBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+
+        val root = binding.root
 
         val id = arguments?.getString("id")
         val firstname = arguments?.getString("firstname")
@@ -43,12 +46,12 @@ class PersonDetailsFragment : Fragment() {
 
             ivBackArrow.setOnClickListener {
                 val intent = Intent(requireContext(),PersonListFragment::class.java)
-//                requireActivity().supportFragmentManager.popBackStack()
+                view?.findNavController()?.popBackStack() //navigates back to previous fragment
             }
         }
 
 
-        return binding.root
+        return root
     }
 
 }

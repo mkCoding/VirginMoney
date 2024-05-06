@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--The PersonListFragment will begine here in activity_main.xml-->
     <fragment
         android:id="@+id/personListFragment"
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:layout_constraintBottom_toTopOf="@id/frameLayout"
         app:layout_constraintTop_toTopOf="parent"
+        app:defaultNavHost="true"
         >
     </fragment>
 
@@ -32,6 +34,7 @@
 
     </FrameLayout>
 
+    <!--This will display the bottom app navigation which contains All People and Rooms Tab-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"

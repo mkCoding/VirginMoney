@@ -33,5 +33,8 @@
         android:label="room_list_fragment"
         tools:layout ="@layout/fragment_room_list" />
 
+<!--    <action-->
+<!--        android:id="@+id/action_personListFragment_to_personDetailsFragment"-->
+<!--        app:destination="@id/personDetailsFragment" />-->
 
 </navigation>

@@ -37,7 +37,7 @@ class PersonListFragment : Fragment() {
 
         //4th use binding to set onclick listner to navigate to desired Fragment
         binding.apply {
-            binding.apply {
+//            binding.apply {
 //            tvPersonListText.setOnClickListener {
 //                //navigate to person details fragment
 //                findNavController().navigate(R.id.personDetailsFragment)
@@ -54,7 +54,7 @@ class PersonListFragment : Fragment() {
                         layoutManager = LinearLayoutManager(context)
                         adapter = PeopleListAdapter(it) { peopleItemModel ->
                             findNavController().navigate(
-                                R.id.action_personListFragment_to_personDetailsFragment,
+                                R.id.action_personListFragment_to_personDetailsFragment, //<-- Code to be checked. When replace with R.id.personDetailsFragment it doesn't crash the app
                                 bundleOf(
                                     Pair("id", peopleItemModel.id),
                                     Pair("firstname", peopleItemModel.firstName),
@@ -76,4 +76,4 @@ class PersonListFragment : Fragment() {
             return root
         }
     }
-}
+//}

@@ -21,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
+    <!--Divider line between the Title and RecyclerView-->
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
@@ -28,6 +29,7 @@
         android:background="@android:color/holo_blue_light"
         app:layout_constraintTop_toBottomOf="@id/tvPersonListText" />
 
+    <!--This RecyclerView will be populated from data observed from ViewModel-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPeople"
         android:layout_width="match_parent"
