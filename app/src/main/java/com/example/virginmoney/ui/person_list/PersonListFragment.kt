@@ -43,7 +43,6 @@ class PersonListFragment : Fragment() {
 //                findNavController().navigate(R.id.personDetailsFragment)
 //            }
 
-
                 //5th use the view model to populate the data/live data into the current fragment
                 //live data is data that we are pulling from backend
                 peopleListViewModel.personList.observe(viewLifecycleOwner) {

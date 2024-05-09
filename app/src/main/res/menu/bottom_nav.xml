@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="All People"
-        android:id="@+id/people"
+        android:id="@+id/nav_people_list"
         android:icon="@drawable/person_icon"/>
 
     <item android:title="Rooms"
-        android:id="@+id/allRooms"
+        android:id="@+id/nav_rooms"
         android:icon="@drawable/bed_icon"/>
 
 

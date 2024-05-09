@@ -8,16 +8,25 @@
     tools:context=".MainActivity">
 
     <!--The PersonListFragment will begine here in activity_main.xml-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_host_fragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:defaultNavHost="true"-->
+<!--        class="com.example.virginmoney.ui.person_list.PersonListFragment"-->
+<!--        app:navGraph="@navigation/nav_graph"/>-->
+
+
     <fragment
-        android:id="@+id/personListFragment"
+        android:id="@+id/nav_people_list"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         app:navGraph="@navigation/nav_graph"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:layout_constraintBottom_toTopOf="@id/frameLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:defaultNavHost="true"
-        >
+        app:defaultNavHost="true">
     </fragment>
 
 
@@ -29,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/personListFragment"
+        app:layout_constraintTop_toBottomOf="@id/nav_people_list"
         >
 
     </FrameLayout>

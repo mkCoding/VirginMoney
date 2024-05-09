@@ -1,6 +1,7 @@
 package com.example.virginmoney.ui.room_list
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,7 @@ class RoomListFragment : Fragment() {
     private lateinit var binding: FragmentRoomListBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.i("TAG: RoomListFragment","onCreateView")
         //1st initialize the binding
         binding = FragmentRoomListBinding.inflate(inflater,container,false)
 
