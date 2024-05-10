@@ -1,6 +1,8 @@
 package com.example.virginmoney
 
+import android.opengl.Visibility
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
@@ -38,9 +40,22 @@ class MainActivity : AppCompatActivity() {
              true
         }
 
+        //hide bottom nav
+        navController.addOnDestinationChangedListener{_,destination, _ ->
+            if(destination.id == R.id.personDetailsFragment){
+                binding.bottomNavigationView.visibility = View.GONE
+            }else{
+                binding.bottomNavigationView.visibility = View.VISIBLE
+            }
+        }
 
 
     }
+
+
+
+
+
 //  private fun replaceFragment (fragment: Fragment){
 //        val fragmentManager = supportFragmentManager
 //        val fragmentTransaction = fragmentManager.beginTransaction()

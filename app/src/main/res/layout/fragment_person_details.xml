@@ -15,36 +15,38 @@
     <!--        android:gravity="center"/>-->
 
     <!--Added a back arrow for navigation back to the PersonListFragment-->
-    <ImageView
-        android:id="@+id/ivBackArrow"
-        android:layout_width="50dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginBottom="343dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        app:layout_constraintBottom_toTopOf="@+id/tvFavouriteColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
 
     <!--ImageView that will display the photo of Person obtained from ViewModel-->
-    <ImageView
-        android:id="@+id/tvAvatar"
-        android:layout_width="181dp"
-        android:layout_height="176dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
 
 
     <!--TextView that will display the Id of Person obtained from ViewModel-->
 
     <!--TextView that will display the Firstname of Person obtained from ViewModel-->
+
+    <ImageView
+        android:id="@+id/ivBackArrow"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/tvAvatar"
+        android:layout_width="202dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
@@ -104,11 +106,12 @@
         android:id="@+id/tvFavouriteColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="288dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tvJobTitle"
-        app:layout_constraintStart_toEndOf="@+id/tvJobTitle"
-        app:layout_constraintTop_toBottomOf="@+id/ivBackArrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJobTitle"
+        app:layout_constraintVertical_bias="0.099"
         tools:text="favouriteColor" />
 
 
